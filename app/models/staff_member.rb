@@ -1,4 +1,7 @@
 class StaffMember < ApplicationRecord
+  has_many :events, class_name: "StaffEvent", dependent: :destroy
+  # has_many :staff_events, dependent: :destroy　通常の書き方ではあるがメソッドチェーンにした時に冗長になりやすい
+
   def password=(raw_password)
     if raw_password.kind_of?(String)
       self.hashed_password = BCrypt::Password.create(raw_password)
