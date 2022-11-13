@@ -1,4 +1,6 @@
-<tr>
+<%
+=begin%>>使用しない p333にて削除される
+ <tr>
   <% unless @staff_member %>
   <td>
     <%= link_to(event.member.family_name + event.member.given_name,
@@ -10,3 +12,5 @@
     <%= event.occurred_at.strftime("%Y/%m/%d %H:%M:%S") %>
   </td>
 </tr>
+<%
+=end%>
