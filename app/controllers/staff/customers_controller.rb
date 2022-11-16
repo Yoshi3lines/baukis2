@@ -1,7 +1,7 @@
 class Staff::CustomersController < Staff::Base
   def index
-    @customers = Customer.order(:family_name_kana, :given_name_kana).
-      page(params[:page])
+    @customers = Customer.order(:family_name_kana, :given_name_kana)
+      .page(params[:page])
   end
 
   def show
@@ -23,8 +23,8 @@ class Staff::CustomersController < Staff::Base
       flash.notice = "顧客を追加しました。"
       redirect_to action: "index"
     else
-      flash.alert = "入力に誤りがあります。"
-      render action "new"
+      flash.now.alert = "入力に誤りがあります。"
+      render action: "new"
     end
   end
 
@@ -35,8 +35,8 @@ class Staff::CustomersController < Staff::Base
       flash.notice = "顧客情報を更新しました。"
       redirect_to action: "index"
     else
-      flash.alert = "入力に誤りがあります。"
-      render action "edit"
+      flash.now.alert = "入力に誤りがあります。"
+      render action: "edit"
     end
   end
 
