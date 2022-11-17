@@ -43,6 +43,9 @@ company_names = %w(OIAX ABC XYZ)
       birthday: 60.years.ago.advance(seconds: rand(40.years)).to_date,
       gender: m < 5 ? "male" : "female"
     )
+    if m % 2 == 0
+      c.personal_phones.create!(number: sprintf("090-0000-%04d", n * 10 + m))
+    end
     c.create_home_address!(
       postal_code: sprintf("%07d", rand(10000000)),
       prefecture: Address::PREFECTURE_NAMES.sample,
